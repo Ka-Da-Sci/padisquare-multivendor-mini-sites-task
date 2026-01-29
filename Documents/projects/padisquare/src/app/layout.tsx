@@ -8,24 +8,24 @@ import {
   bai_jamjuree,
 } from "@/styles/fonts";
 import { cookies } from "next/headers";
-import ThemeToggle from "@/components/theme-toggle";
+// import ThemeToggle from "@/components/theme-toggle";
 
 // Define metadata for the application, including SEO and Open Graph data
 export const metadata: Metadata = {
-  metadataBase: new URL("https://krea-ai-website-remake.vercel.app"),
+  metadataBase: new URL("https://padisquare-multivendor-mini-sites-demo.vercel.app"),
 
   title: {
-    default: "Krea AI Website Remake",
-    template: "%s | Krea AI Website Remake",
+    default: "Padisquare Multivendor Mini Sites Demo",
+    template: "%s | Padisquare Multivendor Mini Sites Demo",
   },
   description: "Remake of Krea AI website.",
   icons: { icon: "/images/logo-trans.svg" },
 
   openGraph: {
-    title: "Krea AI Website Remake",
-    description: "Remake of Krea AI website.",
-    url: "https://krea-ai-website-remake.vercel.app",
-    siteName: "Krea AI Website Remake",
+    title: "Padisquare Multivendor Mini Sites Demo",
+    description: "Demo of Padisquare Multivendor Mini Sites.",
+    url: "https://padisquare-multivendor-mini-sites-demo.vercel.app",
+    siteName: "Padisquare Multivendor Mini Sites Demo",
     images: [{ url: "/images/logo-trans.svg" }],
   },
 };
@@ -49,14 +49,6 @@ export default async function RootLayout({
     return "system";
   };
 
-  // // Determine initial theme name based on cookie only (server-side)
-  // const getInitialThemeName = () => {
-  //   if (themeName === "dark") return "dark";
-  //   if (themeName === "light") return "light";
-  //   if (themeName === "system") return "system";
-  //   return "system";
-  // };
-
   const initialTheme = getInitialTheme();
   // const initialThemename = getInitialThemeName();
 
@@ -69,12 +61,12 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}  ${bai_jamjuree.variable} ${space_grotesk.variable} antialiased bg-background font-sans flex flex-col justify-between items-center w-full h-screen max-w-360 mx-auto overflow-x-hidden`}
       >
-        <header>
+        {/* <header>
           <ThemeToggle
             initialTheme={initialTheme}
             // initialThemename={initialThemename}
           />
-        </header>
+        </header> */}
         {children}
       </body>
     </html>
