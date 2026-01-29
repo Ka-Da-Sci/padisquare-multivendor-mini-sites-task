@@ -2,17 +2,12 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import fs from "fs/promises";
 import path from "path";
-// import VendorHeader from '@/components/vendor-header';
-// import Hero from "@/components/hero";
-// import ProductGrid from "@/components/product-grid"; // Client component wrapper
-import VendorSiteHeader from "@/components/vendor-site-header";
 import VendorSiteLayoutWrapper from "@/components/vendor-site-layout-wrapper";
 import Hero from "@/components/vendor-home/hero";
 import ProductGrid from "@/components/vendor-home/products-grid";
 import { VendorType } from "@/utils/types";
 import { Suspense } from "react";
 import Loading from "./loading";
-// import NotFound from '@/app/not-found';
 
 
 async function getVendor(slug: string): Promise<VendorType | undefined> {
@@ -60,7 +55,7 @@ export default async function VendorPage({
   return (
     <VendorSiteLayoutWrapper>
       {/* <VendorHeader name={vendor.name} logo={vendor.logo} /> */}
-      <VendorSiteHeader />
+      {/* <VendorSiteHeader /> */}
       {/* <Hero image={vendor.heroImage} /> */}
       <Hero />
       <Suspense fallback={<Loading />}>

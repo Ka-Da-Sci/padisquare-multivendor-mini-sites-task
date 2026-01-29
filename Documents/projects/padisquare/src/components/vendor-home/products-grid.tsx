@@ -23,8 +23,9 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
     isFetched,
     error,
   } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["products", slug],
     queryFn: async () => {
+      console.log("Fetching products for vendor:", slug);
       const products = await fetchProducts(slug);
       return validateProducts(products);
     },
@@ -36,7 +37,7 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOption, setSortOption] = useState("recent");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const itemsPerPage = 4;
 
   const filteredProducts = useMemo(() => {
     let result = products.filter((p) =>
@@ -73,7 +74,7 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
               <h2 className="font-normal text-xs sm:text-sm">
                 Find Your Perfect Gadget Among Our Favorites
               </h2>
-              <div className="overflow-hidden relative z-0 dynamic-hr w-[95%] h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
+              <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
             </div>
           </div>
         </div>
@@ -101,7 +102,7 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
               <h2 className="font-normal text-xs sm:text-sm">
                 Find Your Perfect Gadget Among Our Favorites
               </h2>
-              <div className="overflow-hidden relative z-0 dynamic-hr w-[95%] h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
+              <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
             </div>
           </div>
         </div>
@@ -130,7 +131,7 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
             <h2 className="font-normal text-xs sm:text-sm">
               Find Your Perfect Gadget Among Our Favorites
             </h2>
-            <div className="overflow-hidden relative z-0 dynamic-hr w-[95%] h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
+            <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
           </div>
         </div>
       </div>
@@ -146,8 +147,9 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
         className="self-start max-sm:self-center grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] max-lg:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] max-sm:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] w-full gap-8 justify-between items-start"
       >
         {/* Map through validated products and render Product component */}
-        {filteredProducts.map((product, idx) => (
+        {paginatedProducts.map((product, idx) => (
           <Product
+          vendorSlug={slug}
             key={`product_${idx}`}
             product={{
               ...product,

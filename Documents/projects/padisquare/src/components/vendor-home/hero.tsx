@@ -5,6 +5,7 @@ import photo from "../../../public/images/hero-bg.png";
 import ImageWrapper from "../image-wrapper";
 import SectionAnimatedWrapper from "../section-animated-wrapper";
 import { motion, useAnimation, useInView } from "motion/react";
+import BackBtn from "../page-back-btn";
 
 // Utility function to split text into individual characters for animation
 const splitChars = (text: string) =>
@@ -58,12 +59,15 @@ const Hero = () => {
     <SectionAnimatedWrapper
       sectionId="hero"
       sectionClassName={
-        "w-full z-0 pt-6 md:pt-10 bg-hero-section-background-primary"
+        "w-full  pt-6 md:pt-10"
       }
-      classNamePlus="relative overflow-hidden max-md:flex-col-reverse max-md:mt-8 pb-4"
+      classNamePlus="relative overflow-clip max-md:flex-col-reverse max-md:mt-8 pb-4"
     >
       {/* Left column for text content */}
-      <div className="z-10 pt-10 sm:pt-20 flex max-md:items-center flex-col justify-between gap-4 max-w-175 flex-1/2 overflow-clip">
+      <div className="relative pt-30 sm:pt-36 flex max-md:items-center flex-col justify-between gap-4 max-w-175 flex-1/2 overflow-x-clip">
+        <div className="absolute top-2 sm:top-6 left-0 border border-[#408bfc] rounded-md pointer-events-auto cursor-pointer p-1">
+          <BackBtn pageMenuTitle="Back Home" />
+        </div>
         <div ref={h1Ref}>
           {isH1InView && (
             <motion.h1
@@ -110,9 +114,9 @@ const Hero = () => {
       </div>
 
       {/* Right column for hero image */}
-      <div className="transition-all duration-500 z-0 max-lg:opacity-40 opacity-100 absolute right-0 top-0 max-[375px]:hidden flex self-start justify-center max-w-875 sm:max-w-125 p-0">
+      <div className="transition-all duration-500 -z-10 max-lg:opacity-40 opacity-100 absolute right-0 top-0 max-[375px]:hidden flex self-start justify-center max-w-875 sm:max-w-125 p-0">
         <ImageWrapper
-          className="relative"
+          className="relative -z-10"
           sourceUrl={photo.src}
           alternativeText={"electrocis gadget"}
         />

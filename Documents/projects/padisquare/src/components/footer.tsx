@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear(); // Dynamically gets the current year
 
   return (
-    <footer className="w-full container mx-auto mt-auto pt-16 sm:pt-32 px-4 sm:px-8 transition-all duration-300 flex flex-col gap-24 items-center">
+    <footer className="w-full container mx-auto mt-auto pt-16 sm:pt-32 pb-4 px-4 sm:px-8 transition-all duration-300 flex flex-col gap-24 items-center">
       <div className="w-full mx-auto space-y-12">
         {/* Bottom Section */}
         <div className="mt-6 pt-4 border-t border-gray-700 flex justify-between items-center text-xs">

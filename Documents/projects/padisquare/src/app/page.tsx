@@ -26,8 +26,8 @@ export default async function HomePage() {
   const slugs = await getVendorSlugs();
 
   return (
-      <MainRootlayoutWrapper>
-    <div className="h-full flex flex-col items-center justify-center p-4">
+    <MainRootlayoutWrapper>
+      <div className="h-full flex flex-col items-center justify-center p-4">
         <h1 className="text-3xl font-bold mb-8">
           Welcome to Padisquare Vendor Storefronts
         </h1>
@@ -49,7 +49,7 @@ export default async function HomePage() {
         {slugs.length === 0 && (
           <p className="text-gray-500">No vendors available.</p>
         )}
-    </div>
-      </MainRootlayoutWrapper>
+      </div>
+    </MainRootlayoutWrapper>
   );
 }

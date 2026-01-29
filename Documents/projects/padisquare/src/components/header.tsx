@@ -5,7 +5,7 @@ import Logo from "./logo";
 import Link from "next/link";
 
 
-const VendorSiteHeader = () => {
+const Header = () => {
 
   return (
     <div
@@ -23,4 +23,4 @@ const VendorSiteHeader = () => {
   );
 };
 
-export default VendorSiteHeader;
+export default Header;

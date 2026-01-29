@@ -26,7 +26,8 @@ const containerVariant = {
 const Product: FC<{
   product: CartItem;
   index: number;
-}> = ({ product, index }) => {
+  vendorSlug: string
+}> = ({ product, index, vendorSlug }) => {
   const [showDescription, setShowDescription] = useState(false);
   const [showAddToCart, setShowAddToCart] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -74,7 +75,7 @@ const Product: FC<{
       className="w-full justify-self-center max-w-75 h-full relative"
     >
       <MotionLink
-        href={`/products/${product.id}`}
+        href={`/site/${vendorSlug}/products/${product.id}`}
         className="item-container group z-0 h-full flex items-center gap-12 flex-col border border-solid border-[#1E1E1E4D] hover:[box-shadow:0px_4px_30px_0px_#00000033] transition-all duration-500 rounded-xl py-8 px-4"
       >
         <motion.div
