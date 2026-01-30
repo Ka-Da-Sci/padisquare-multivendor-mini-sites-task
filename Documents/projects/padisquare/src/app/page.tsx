@@ -1,29 +1,9 @@
-// import MainRootlayoutWrapper from "@/components/main-rootlayout-wrapper";
-
-// export const revalidate = 0;
-
-// const Home = () => {
-//   return (
-//     <MainRootlayoutWrapper>
-//       {/* <MainHomepageWrapper /> */}
-//       <div>Home page</div>
-//     </MainRootlayoutWrapper>
-//   );
-// };
-
-// export default Home;
-
 import MainRootlayoutWrapper from "@/components/main-rootlayout-wrapper";
+import { fetchVendorsMeta } from "@/services/fetch-vendors-meta";
 import Link from "next/link";
 
-// Optionally fetch all vendor slugs from your mock data
-async function getVendorSlugs() {
-  // Reuse your fetch logic or hardcode for simplicity
-  return ["vendor1", "vendor2"]; // From vendors.json
-}
-
 export default async function HomePage() {
-  const slugs = await getVendorSlugs();
+  const vendorMeta = await fetchVendorsMeta();
 
   return (
     <MainRootlayoutWrapper>
@@ -35,18 +15,18 @@ export default async function HomePage() {
           Select a vendor to view their storefront:
         </p>
         <ul className="space-y-4">
-          {slugs.map((slug) => (
-            <li key={slug}>
+          {vendorMeta.map((vendor) => (
+            <li key={vendor.slug}>
               <Link
-                href={`/site/${slug}`}
+                href={`/site/${vendor.slug}`}
                 className="text-primary hover:underline text-xl"
               >
-                {slug.charAt(0).toUpperCase() + slug.slice(1)} Store
+                {vendor.name.charAt(0).toUpperCase() + vendor.name.slice(1)}
               </Link>
             </li>
           ))}
         </ul>
-        {slugs.length === 0 && (
+        {vendorMeta.length === 0 && (
           <p className="text-gray-500">No vendors available.</p>
         )}
       </div>

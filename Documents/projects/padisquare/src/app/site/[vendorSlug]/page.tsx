@@ -1,21 +1,11 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import fs from "fs/promises";
-import path from "path";
 import VendorSiteLayoutWrapper from "@/components/vendor-site-layout-wrapper";
 import Hero from "@/components/vendor-home/hero";
 import ProductGrid from "@/components/vendor-home/products-grid";
-import { VendorType } from "@/utils/types";
 import { Suspense } from "react";
 import Loading from "./loading";
-
-
-async function getVendor(slug: string): Promise<VendorType | undefined> {
-  const filePath = path.join(process.cwd(), "src", "data", "vendors.json");
-  const jsonData = await fs.readFile(filePath, "utf-8");
-  const vendors: VendorType[] = JSON.parse(jsonData);
-  return vendors.find((v) => v.slug === slug);
-}
+import { fetchVendor } from "@/services/fetch-vendor";
 
 export async function generateMetadata({
   params,
@@ -23,7 +13,7 @@ export async function generateMetadata({
   params: Promise<{ vendorSlug: string }>;
 }): Promise<Metadata> {
   const { vendorSlug } = await params;
-  const vendor = await getVendor(vendorSlug);
+  const vendor = await fetchVendor(vendorSlug);
   if (!vendor) return { title: "Vendor Not Found" };
 
   return {
@@ -44,7 +34,7 @@ export default async function VendorPage({
   params: Promise<{ vendorSlug: string }>;
 }) {
   const { vendorSlug } = await params;
-  const vendor = await getVendor(vendorSlug);
+  const vendor = await fetchVendor(vendorSlug);
 
   //   console.log('Generating metadata for vendor:', vendor);
 
@@ -57,7 +47,7 @@ export default async function VendorPage({
       {/* <VendorHeader name={vendor.name} logo={vendor.logo} /> */}
       {/* <VendorSiteHeader /> */}
       {/* <Hero image={vendor.heroImage} /> */}
-      <Hero />
+      <Hero heroImage={vendor.heroImage} />
       <Suspense fallback={<Loading />}>
         <ProductGrid slug={vendor.slug} />
       </Suspense>

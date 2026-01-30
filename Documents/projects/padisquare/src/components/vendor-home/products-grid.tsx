@@ -37,7 +37,7 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOption, setSortOption] = useState("recent");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 8;
 
   const filteredProducts = useMemo(() => {
     let result = products.filter((p) =>

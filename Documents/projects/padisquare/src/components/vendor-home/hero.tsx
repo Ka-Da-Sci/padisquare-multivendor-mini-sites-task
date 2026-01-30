@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import photo from "../../../public/images/hero-bg.png";
 import ImageWrapper from "../image-wrapper";
 import SectionAnimatedWrapper from "../section-animated-wrapper";
 import { motion, useAnimation, useInView } from "motion/react";
@@ -33,12 +32,14 @@ const charMotion = {
 };
 
 // Hero component for the homepage banner section
-const Hero = () => {
+const Hero = ({heroImage}: {heroImage: string}) => {
   const h1Ref = useRef(null);
   const isH1InView = useInView(h1Ref, { amount: 0 });
   const bottomRef = useRef(null);
   const isBottomInView = useInView(bottomRef, { amount: 0 });
   const controls = useAnimation();
+
+  // alert(heroImage);
 
   // Effect to replay animations periodically
   useEffect(() => {
@@ -117,7 +118,7 @@ const Hero = () => {
       <div className="transition-all duration-500 -z-10 max-lg:opacity-40 opacity-100 absolute right-0 top-0 max-[375px]:hidden flex self-start justify-center max-w-875 sm:max-w-125 p-0">
         <ImageWrapper
           className="relative -z-10"
-          sourceUrl={photo.src}
+          sourceUrl={heroImage}
           alternativeText={"electrocis gadget"}
         />
       </div>
@@ -126,3 +127,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
