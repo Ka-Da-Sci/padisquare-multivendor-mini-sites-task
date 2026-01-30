@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import VendorSiteLayoutWrapper from "@/components/vendor-site-layout-wrapper";
-import Hero from "@/components/vendor-home/hero";
-import ProductGrid from "@/components/vendor-home/products-grid";
+import Hero from "@/components/vendor/hero";
+import ProductGrid from "@/components/vendor/products-grid";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { fetchVendor } from "@/services/fetch-vendor";
@@ -47,9 +47,9 @@ export default async function VendorPage({
       {/* <VendorHeader name={vendor.name} logo={vendor.logo} /> */}
       {/* <VendorSiteHeader /> */}
       {/* <Hero image={vendor.heroImage} /> */}
-      <Hero heroImage={vendor.heroImage} />
+      <Hero heroImage={vendor.heroImage} catchPhrase={vendor.catchPhrase} />
       <Suspense fallback={<Loading />}>
-        <ProductGrid slug={vendor.slug} />
+        <ProductGrid slug={vendor.slug} subCatchPhrase={vendor.subCatchPhrase} />
       </Suspense>
     </VendorSiteLayoutWrapper>
   );

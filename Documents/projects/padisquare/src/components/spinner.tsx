@@ -1,13 +1,6 @@
-import { motion } from "framer-motion";
-
-export type SpinnerProps = {
-  size?: number;
-  strokeWidth?: number;
-  color?: string;
-  speed?: number;
-  className?: string;
-  ariaLabel?: string;
-};
+"use client";
+import { SpinnerProps } from "@/utils/types";
+import { motion } from "motion/react";
 
 // Loading spinner component
 const Spinner = ({

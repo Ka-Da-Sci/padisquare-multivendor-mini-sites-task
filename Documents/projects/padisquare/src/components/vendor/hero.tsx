@@ -32,14 +32,13 @@ const charMotion = {
 };
 
 // Hero component for the homepage banner section
-const Hero = ({heroImage}: {heroImage: string}) => {
+const Hero = ({heroImage, catchPhrase}: {heroImage: string; catchPhrase: string;}) => {
   const h1Ref = useRef(null);
   const isH1InView = useInView(h1Ref, { amount: 0 });
   const bottomRef = useRef(null);
   const isBottomInView = useInView(bottomRef, { amount: 0 });
   const controls = useAnimation();
 
-  // alert(heroImage);
 
   // Effect to replay animations periodically
   useEffect(() => {
@@ -60,7 +59,7 @@ const Hero = ({heroImage}: {heroImage: string}) => {
     <SectionAnimatedWrapper
       sectionId="hero"
       sectionClassName={
-        "w-full  pt-6 md:pt-10"
+        "w-full relative pt-6 md:pt-10"
       }
       classNamePlus="relative overflow-clip max-md:flex-col-reverse max-md:mt-8 pb-4"
     >
@@ -77,7 +76,7 @@ const Hero = ({heroImage}: {heroImage: string}) => {
               initial="hidden"
               animate="visible"
             >
-              {splitChars("Your Electronics And Gadgets Accessories Hub")}
+              {splitChars(catchPhrase)}
             </motion.h1>
           )}
         </div>
@@ -115,7 +114,7 @@ const Hero = ({heroImage}: {heroImage: string}) => {
       </div>
 
       {/* Right column for hero image */}
-      <div className="transition-all duration-500 -z-10 max-lg:opacity-40 opacity-100 absolute right-0 top-0 max-[375px]:hidden flex self-start justify-center max-w-875 sm:max-w-125 p-0">
+      <div className="transition-all duration-500 -z-10 max-lg:opacity-40 opacity-100 absolute right-0 top-0 max-[375px]:hidden flex self-start w-full justify-center max-w-875 sm:max-w-125 p-0">
         <ImageWrapper
           className="relative -z-10"
           sourceUrl={heroImage}

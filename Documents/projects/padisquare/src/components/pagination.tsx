@@ -5,7 +5,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: { 
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`mx-1 px-3 py-1 border rounded-md text-center ${currentPage === page ? 'bg-primary text-white' : ''}`}
+          className={`mx-1 px-3 py-1 border rounded-md cursor-pointer text-center ${currentPage === page ? 'bg-primary text-white' : ''}`}
         >
           {page}
         </button>

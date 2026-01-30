@@ -15,7 +15,7 @@ import { sortProducts } from "@/lib/utils";
 import Pagination from "../pagination";
 
 // Main component for rendering the products section
-const ProductsGrid = ({ slug }: { slug: string }) => {
+const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase: string; }) => {
   // Fetch products using TanStack Query and validate them
   const {
     data: products = [],
@@ -51,13 +51,11 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
     const start = (currentPage - 1) * itemsPerPage;
     return filteredProducts.slice(start, start + itemsPerPage);
   }, [filteredProducts, currentPage]);
-  
+
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
-  if (isFetched && !products.length) return <EmptyState message="No products available." />;
-  
-  // Render loading state with spinner
-  if (isLoading) {
+  // Render loading spinner or empty state if no products are available
+  if (isLoading || (isFetched && !products.length)) {
     return (
       <SectionAnimatedWrapper
         sectionId="products"
@@ -71,20 +69,22 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
               Top Picks for You
             </h1>
             <div className="flex flex-col items-center gap-4">
-              <h2 className="font-normal text-xs sm:text-sm">
-                Find Your Perfect Gadget Among Our Favorites
+              <h2 className="font-normal text-xs sm:text-sm uppercase">
+                {subCatchPhrase}
               </h2>
               <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
             </div>
           </div>
         </div>
-
         {/* Display spinner during loading */}
-        <Spinner />
+        {isLoading && <Spinner />}
+        {isFetched && !products.length && (
+          <EmptyState message="No products available." />
+        )}
       </SectionAnimatedWrapper>
     );
   }
-  
+
   // Render error state with message
   if (error) {
     return (
@@ -99,8 +99,8 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
               Top Picks for You
             </h1>
             <div className="flex flex-col items-center gap-4">
-              <h2 className="font-normal text-xs sm:text-sm">
-                Find Your Perfect Gadget Among Our Favorites
+              <h2 className="font-normal text-xs sm:text-sm uppercase">
+                {subCatchPhrase}
               </h2>
               <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
             </div>
@@ -128,8 +128,8 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
             Top Picks for You
           </h1>
           <div className="flex flex-col items-center gap-4">
-            <h2 className="font-normal text-xs sm:text-sm">
-              Find Your Perfect Gadget Among Our Favorites
+            <h2 className="font-normal text-xs sm:text-sm uppercase">
+              {subCatchPhrase}
             </h2>
             <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
           </div>
@@ -149,7 +149,7 @@ const ProductsGrid = ({ slug }: { slug: string }) => {
         {/* Map through validated products and render Product component */}
         {paginatedProducts.map((product, idx) => (
           <Product
-          vendorSlug={slug}
+            vendorSlug={slug}
             key={`product_${idx}`}
             product={{
               ...product,

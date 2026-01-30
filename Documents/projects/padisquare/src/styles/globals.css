@@ -140,6 +140,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --breakpoint-xs: 450px; /* Custom breakpoint for min-width: 450px */
+
   --color-primary-0: var(--varr-color-primary-0);
   --color-primary-50: var(--varr-color-primary-50);
   --color-primary-100: var(--varr-color-primary-100);
@@ -182,12 +184,15 @@
   --color-neutral-400: var(--varr-color-neutral-400);
   --shadow-grid: var(--varr-shadow-grid);
 
-  --font-sans: "Suisse Intl", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: "Nanum Myeongjo", "Garamond", "EB Garamond", "Times New Roman",
-    "Times", ui-serif, Georgia, Cambria, serif;
-  --font-mono: "Suisse Intl Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans:
+    "Suisse Intl", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif:
+    "Nanum Myeongjo", "Garamond", "EB Garamond", "Times New Roman", "Times",
+    ui-serif, Georgia, Cambria, serif;
+  --font-mono:
+    "Suisse Intl Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
   --font-ibm_plex_sans: var(--font-ibm_plex_sans);
   --font-roboto: var(--font-roboto);
   --font-oswald: var(--font-oswald);
@@ -339,5 +344,9 @@
   }
   .scroll-track {
     animation: scroll-seamless 25s linear infinite;
+  }
+
+  .vendor-card .vendor-card-top:hover .vendor-hover-card {
+    @apply flex;
   }
 }

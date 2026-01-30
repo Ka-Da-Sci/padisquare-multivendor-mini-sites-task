@@ -3,18 +3,10 @@ import z from "zod";
 import { vendorData } from "@/db/mock-db";
 
 
-// export type CartItem = {
-//   id: string;
-//   quantity: number;
-//   description: string;
-//   title: string;
-//   price: number;
-//   imgSrc: string | { src: string };
-//   altText: string;
-// };
-
-
 export type VendorType = typeof vendorData[number];
+export type VendorMetaType = typeof vendorData[number] extends { slug: string; name: string; logo: string }
+  ? { slug: string; name: string; logo: string }
+  : never;
 export type ProductType = typeof vendorData[number]["products"][number];
 export type SeoType = VendorType["seo"];
 
@@ -29,4 +21,13 @@ export type PaymentResponseType = {
 }
 
 export type AddToCartFormDataType = z.infer<typeof addToCartSchema>;
+
+export type SpinnerProps = {
+  size?: number;
+  strokeWidth?: number;
+  color?: string;
+  speed?: number;
+  className?: string;
+  ariaLabel?: string;
+};
 

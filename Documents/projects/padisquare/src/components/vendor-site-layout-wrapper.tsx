@@ -3,8 +3,7 @@
 import dynamic from "next/dynamic";
 import { ReactNode } from "react";
 import useCartStore from "../store/use-cart-store";
-// import Header from './vendor-site-header';
-import QueryClientProvider from "@/lib/tanstack-wrapper";
+import QueryClientProvider from "@/providers/tanstack-wrapper";
 import UtilityHoverCard from "./utility-hover-card";
 import Footer from "./footer";
 import Header from "./header";
