@@ -8,7 +8,7 @@ const OpenCartCheckout = ({handleCloseAddToCart}: {handleCloseAddToCart?: () => 
       onClick={() => {setCartModalOpen(true);
         if (handleCloseAddToCart && typeof handleCloseAddToCart === "function") handleCloseAddToCart();
       }}
-      className="w-full p-2.5 flex items-center justify-center gap-2 font-poppins text-sm md:text-base rounded bg-[#408bfc] text-white hover:scale-105 border border-solid border-[#408bfc] cursor-pointer transition-all duration-300 ease-in-out"
+      className="w-full p-2.5 flex items-center justify-center gap-2 font-poppins text-sm md:text-base rounded bg-brand-primary text-white hover:scale-105 border border-solid border-brand-primary cursor-pointer transition-all duration-300 ease-in-out"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

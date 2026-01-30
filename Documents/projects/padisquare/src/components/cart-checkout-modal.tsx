@@ -376,7 +376,7 @@ const CartCheckoutModal = () => {
                     {/* Pay now or generate QR code button */}
                     {!!qrCodeData && (
                       <button
-                        className={`cursor-pointer font-inter text-sm md:text-base bg-[#408BFC] text-[#ffffff] rounded-lg px-4 py-2 flex items-center justify-center border border-solid border-transparent text-center transition-all duration-300 ease-in-out font-semibold antialiased ${
+                        className={`cursor-pointer font-inter text-sm md:text-base bg-brand-primary text-[#ffffff] rounded-lg px-4 py-2 flex items-center justify-center border border-solid border-transparent text-center transition-all duration-300 ease-in-out font-semibold antialiased ${
                           !isValid || !qrCodeData
                             ? "opacity-50 cursor-not-allowed"
                             : ""
@@ -392,7 +392,7 @@ const CartCheckoutModal = () => {
                         type="button"
                         onClick={handleGenerateQRCode}
                         disabled={!isValid}
-                        className={`w-full cursor-pointer font-inter text-sm md:text-base bg-[#408BFC] text-[#ffffff] rounded-lg flex items-center justify-center p-2 px-4 border border-solid border-transparent text-center transition-all duration-300 ease-in-out font-semibold antialiased ${
+                        className={`w-full cursor-pointer font-inter text-sm md:text-base bg-brand-primary text-[#ffffff] rounded-lg flex items-center justify-center p-2 px-4 border border-solid border-transparent text-center transition-all duration-300 ease-in-out font-semibold antialiased ${
                           !isValid ? "opacity-50 cursor-not-allowed" : ""
                         }`}
                       >
@@ -406,14 +406,14 @@ const CartCheckoutModal = () => {
                         <p className="font-poppins antialiased font-normal mb-1 text-center text-xs text-[#1E1E1EBA]">
                           By checking out you agree with our{" "}
                           <Link
-                            className="font-inter antialiased underline text-[#408BFC]"
+                            className="font-inter antialiased underline text-brand-primary"
                             href="/error404"
                           >
                             Terms of Service
                           </Link>{" "}
                           and confirm that you have read our{" "}
                           <Link
-                            className="font-inter antialiased underline text-[#408BFC]"
+                            className="font-inter antialiased underline text-brand-primary"
                             href="/error404"
                           >
                             Privacy Policy
@@ -463,7 +463,7 @@ const CartCheckoutModal = () => {
                   Your cart is empty
                 </p>
                 <Link
-                  className="font-inter antialiased no-underline flex items-center justify-center text-xs w-40 h-8 bg-[#408bfc] outline-none text-white rounded-lg cursor-pointer text-center transition-all duration-300 ease-in-out"
+                  className="font-inter antialiased no-underline flex items-center justify-center text-xs w-40 h-8 bg-brand-primary outline-none text-white rounded-lg cursor-pointer text-center transition-all duration-300 ease-in-out"
                   href="/#products"
                   onClick={() => setCartModalOpen(false)}
                 >

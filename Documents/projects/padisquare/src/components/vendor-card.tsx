@@ -27,12 +27,12 @@ const VendorPreviewCard = ({ vendor }: { vendor: VendorMetaType }) => {
             />
           </div>
           <div
-            className={`hidden group-hover:flex z-20 justify-center items-center w-full h-full absolute top-0 left-0 bg-[#0053FA99]`}
+            className={`hidden group-hover:flex z-20 justify-center items-center w-full h-full absolute top-0 left-0 bg-[#1E1E1E]/70`}
           >
             <div
-              className="rounded-lg bg-[#FFFFFF] px-5 py-2"
+              className="rounded-lg bg-brand-primary px-5 py-2"
             >
-              <p className="font-inter font-normal text-base antialiased capitalize">
+              <p className="text-white font-inter font-normal text-base antialiased capitalize">
                 Explore
               </p>
             </div>

@@ -176,16 +176,16 @@ const AddToCart = ({
             tap: { scale: 1.2, transition: { duration: 1 } },
             visible: {
               backgroundColor: [
+                "#159C47",
+                "#159C47",
+                "#159C47",
                 "#7A5CFF",
-                "#7A5CFF",
-                "#9C85FF",
-                "#7A5CFF",
-                "#9C85FF",
+                "#159C47",
                 "#4525C7",
-                "#9C85FF",
+                "#159C47",
                 "#7A5CFF",
-                "#7A5CFF",
-                "#7A5CFF",
+                "#159C47",
+                "#159C47",
               ],
               color: [
                 "#FFFFFF",
@@ -213,7 +213,7 @@ const AddToCart = ({
             event.stopPropagation();
             handleSubmit(onSubmit)();
           }}
-          className="add-to-cart pointer-events-auto cursor-pointer bg-[#408bfc] text-white whitespace-nowrap uppercase font-semibold font-['Montserrat'] text-xs sm:text-sm p-2 pt-2.5 pb-2.5 rounded"
+          className="add-to-cart pointer-events-auto cursor-pointer bg-brand-primary text-white whitespace-nowrap uppercase font-semibold font-['Montserrat'] text-xs sm:text-sm p-2 pt-2.5 pb-2.5 rounded"
         >
           <motion.p className="inline-block">ADD TO CART</motion.p>
         </motion.button>

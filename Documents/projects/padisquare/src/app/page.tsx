@@ -24,7 +24,7 @@ export default async function HomePage() {
     <MainRootlayoutWrapper>
       <div className="h-full flex flex-col items-center justify-center gap-8 p-4">
         <h1 className="text-3xl md:text-5xl font-poppins font-black mb-8 text-center">
-          Padisquare ecommerce platform
+          Pad<span className="text-brand-primary">i</span>Square ecommerce platform
         </h1>
         <div className="w-full antialiased flex flex-col items-center justify-center gap-4 text-center">
           <h2 className="text-xl md:text-3xl font-poppins font-bold ">

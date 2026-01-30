@@ -42,7 +42,7 @@ const PaymentSuccessModal: React.FC<PaymentSuccessModalProps> = ({
       className="fixed z-50 left-0 top-0 w-full h-full overflow-hidden bg-[rgba(0,0,0,0.4)] flex"
     >
       {/* Modal content with centered layout and responsive sizing */}
-      <div className="bg-[#fefefe] m-auto p-4 border border-solid border-[#888] rounded-2xl text-center relative w-[70%] md:w-[60%] max-w-[500px] h-auto">
+      <div className="bg-[#fefefe] m-auto p-4 border border-solid border-[#888] rounded-2xl text-center relative w-[70%] md:w-[60%] max-w-125 h-auto">
         <div className="flex flex-col items-center gap-4">
           <svg
             className="w-14 sm:w-20 aspect-square mb-2"
@@ -105,7 +105,7 @@ const PaymentSuccessModal: React.FC<PaymentSuccessModalProps> = ({
           </div>
           <button
             onClick={handleClose}
-            className="z-10 hover:scale-110 absolute right-0 transform -translate-x-[12.5%] -translate-y-[170%] rotate-90 cursor-pointer transition-all duration-1000 ease-in-out hover:-translate-x-[12.5%] hover:rotate-[45deg] top-4 shadow-xl rounded-full p-1 bg-black group"
+            className="z-10 hover:scale-110 absolute right-0 transform -translate-x-[12.5%] -translate-y-[170%] rotate-90 cursor-pointer transition-all duration-1000 ease-in-out hover:-translate-x-[12.5%] hover:rotate-45 top-4 shadow-xl rounded-full p-1 bg-black group"
           >
             <X className="group-hover:scale-125 transition-all duration-500 h-5 w-5 text-white" />
           </button>
@@ -120,7 +120,7 @@ const PaymentSuccessModal: React.FC<PaymentSuccessModalProps> = ({
                 );
                 setShowUtilityCardModal(true);
               }}
-              className="w-full p-2 flex items-center justify-center gap-2 font-poppins text-sm md:text-base rounded bg-[#408bfc] text-white hover:bg-[#ffffff] hover:text-[#408bfc] border border-solid border-[#408bfc] cursor-pointer mb-2 transition-all duration-300 ease-in-out"
+              className="w-full p-2 flex items-center justify-center gap-2 font-poppins text-sm md:text-base rounded bg-brand-primary text-white hover:bg-[#ffffff] hover:text-brand-primary border border-solid border-brand-primary cursor-pointer mb-2 transition-all duration-300 ease-in-out"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

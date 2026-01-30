@@ -11,7 +11,7 @@ import Spinner from "../spinner";
 import SearchBar from "../search-bar";
 import SortSelect from "../sort-select";
 import EmptyState from "../empty-state";
-import { sortProducts } from "@/lib/utils";
+import { sortProducts } from "@/utils/sort-product";
 import Pagination from "../pagination";
 
 // Main component for rendering the products section
@@ -72,7 +72,7 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
               <h2 className="font-normal text-xs sm:text-sm uppercase">
                 {subCatchPhrase}
               </h2>
-              <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
+              <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-brand-primary before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
               <h2 className="font-normal text-xs sm:text-sm uppercase">
                 {subCatchPhrase}
               </h2>
-              <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
+              <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-brand-primary before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
             <h2 className="font-normal text-xs sm:text-sm uppercase">
               {subCatchPhrase}
             </h2>
-            <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-[#ff4500] before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-[#ffa17f] after:w-full after:h-full"></div>
+            <div className="overflow-hidden relative z-0 dynamic-hr w-full h-1 rounded-l-full rounded-r-full bg-transparent before:z-20 before:absolute before:top-0 before:left-0 before:content-[''] before:rounded-l-full before:rounded-r-full before:bg-brand-primary before:w-full before:h-full after:z-10 after:absolute after:top-0 after:left-0 after:content-[''] after:rounded-l-full after:rounded-r-full after:bg-brand-primary after:w-full after:h-full"></div>
           </div>
         </div>
       </div>

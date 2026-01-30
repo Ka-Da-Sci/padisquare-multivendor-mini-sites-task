@@ -2,24 +2,23 @@
 
 import Image from "next/image";
 import useCartStore from "../store/use-cart-store";
-import { useEffect, useState } from "react";
+import { useHydrated } from "@/custom-hooks/use-hydrated";
 
 // Component to render the cart button with item count
 const CartButton = () => {
-  const { setCartModalOpen, cartItems } = useCartStore();
-  const [cartNum, setCartNum] = useState(0);
 
-  // Update cart item count when cartItems change
-  useEffect(() => {
-    const cartQty = Object.keys(cartItems).length;
-    setCartNum(cartQty);
-  }, [cartItems]);
+    const hydrated = useHydrated();
+  const { setCartModalOpen, cartItems } = useCartStore();
+
+  const cartItemsCount = hydrated
+    ? Object.keys(cartItems).length
+    : 0;
 
   return (
     <div className="search-cart cursor-pointer pointer-events-auto flex gap-6 items-center">
       {/* Button to open cart modal */}
       <button
-        className="cart relative flex justify-center max-w-[100px] max-h-[100px] cursor-pointer pointer-events-auto"
+        className="cart relative flex justify-center max-w-25 max-h-25 cursor-pointer pointer-events-auto"
         id="cart-trolley"
         onClick={() => setCartModalOpen(true)}
       >
@@ -35,12 +34,12 @@ const CartButton = () => {
         </div>
 
         {/* Cart item count badge */}
-        <div className="counter hover:scale-110 absolute top-1/4 right-0 bg-[#408bfc] rounded-full w-max max-w-[22px] max-h-[22px] aspect-square flex items-center justify-center">
+        <div className="counter hover:scale-110 absolute top-1/4 right-0 bg-brand-primary rounded-full w-max max-w-5.5 max-h-5.5 aspect-square flex items-center justify-center">
           <p
             id="num-of-items"
             className="rounded-full p-2 m-0 text-left text-[#FFFFFF] font-['poppins'] text-xs"
           >
-            {cartNum}
+            {cartItemsCount}
           </p>
         </div>
       </button>

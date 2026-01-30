@@ -1,6 +1,6 @@
-import { Product } from "./types";
+import { ProductType } from "@/utils/types";
 
-export function sortProducts(products: Product[], option: string): Product[] {
+export function sortProducts(products: ProductType[], option: string): ProductType[] {
   const sorted = [...products];
   if (option === 'price-low') {
     sorted.sort((a, b) => a.price - b.price);

@@ -65,7 +65,7 @@ const Hero = ({heroImage, catchPhrase}: {heroImage: string; catchPhrase: string;
     >
       {/* Left column for text content */}
       <div className="relative pt-30 sm:pt-36 flex max-md:items-center flex-col justify-between gap-4 max-w-175 flex-1/2 overflow-x-clip">
-        <div className="absolute top-2 sm:top-6 left-0 border border-[#408bfc] rounded-md pointer-events-auto cursor-pointer p-1">
+        <div className="absolute top-2 sm:top-6 left-0 border border-brand-primary rounded-md pointer-events-auto cursor-pointer p-1">
           <BackBtn pageMenuTitle="Back Home" />
         </div>
         <div ref={h1Ref}>

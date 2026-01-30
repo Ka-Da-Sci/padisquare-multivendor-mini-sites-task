@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 const Spinner = ({
   size = 48,
   strokeWidth = 4,
-  color = "#408BFC",
+  color = "var(--color-brand-primary",
   speed = 1.2,
   className = "",
   ariaLabel = "Loading",

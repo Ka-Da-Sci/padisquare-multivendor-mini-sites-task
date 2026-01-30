@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-6 pt-4 border-t border-gray-700 flex justify-between items-center text-xs">
           <p className="font-normal font-roboto text-sm capitalize antialiased text-foreground/70 hover:text-foreground/90 transition-colors">
-            {currentYear} PadiSquare
+            {currentYear} Pad<span className="text-brand-primary">i</span>Square
           </p>
           <div className="flex space-x-4 mt-0 sm:mt-0">
             <Link
