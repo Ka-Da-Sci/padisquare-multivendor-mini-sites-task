@@ -4,14 +4,14 @@ import { fetchVendorsMeta } from "@/services/fetch-vendors-meta";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://padisquare-multivendor-mini-sites-demo.vercel.app"),
+  metadataBase: new URL("https://padisquare-multivendor-sites-demo.vercel.app"),
   title: "Padisquare Landing Page - Featured Stores",
   description: "Browse stores from our trusted vendors on Padisquare Multivendor Mini Sites.",
   icons: { icon: "/images/padisquare-logo-without-name.png" },
   openGraph: {
     title: "Padisquare Landing Page - Featured Stores",
     description: "Browse stores from our trusted vendors on Padisquare Multivendor Mini Sites.",
-    url: "https://padisquare-multivendor-mini-sites-demo.vercel.app",
+    url: "https://padisquare-multivendor-sites-demo.vercel.app",
     siteName: "Padisquare",
     images: [{ url: "/images/padisquare-logo-without-name.png" }],
   },
