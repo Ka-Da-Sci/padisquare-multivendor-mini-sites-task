@@ -7,6 +7,7 @@ import SectionAnimatedWrapper from "../section-animated-wrapper";
 import AddToCart from "../add-to-cart";
 import { ProductType as CartItem } from "@/utils/types";
 import BackBtn from "../page-back-btn";
+import { useParams } from "next/navigation";
 
 // Animation variants for product details entrance
 const containerVariant = {
@@ -32,6 +33,8 @@ const ProductDetailsInnerWrapper = ({
 }: ProductDetailsWrapperProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.05 });
+  const params = useParams();
+  const { vendorSlug } = params;
 
   return (
     <SectionAnimatedWrapper
@@ -47,7 +50,7 @@ const ProductDetailsInnerWrapper = ({
         className="w-full h-full relative bg-[#000000CC] rounded-lg"
       >
         <div className="w-full max-w-20 absolute -top-16 left-0 border border-[#408bfc] rounded-md pointer-events-auto cursor-pointer p-1">
-          <BackBtn pageMenuTitle="Store" />
+          <BackBtn pageMenuTitle="Store" pathUrl={`/site/${vendorSlug}`} />
         </div>
         <motion.div className="item-container z-0 h-full flex items-center justify-center gap-12 flex-col sm:flex-row py-8 px-4">
           <div className="group max-w-full sm:max-w-1/2 group [box-shadow:0px_4px_30px_0px_#00000033] rounded-lg">
