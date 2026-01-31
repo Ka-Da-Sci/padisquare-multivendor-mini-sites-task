@@ -1,5 +1,5 @@
 import { cartItemSchema } from "@/lib/zod-schemas";
-import { CartItem } from "./types";
+import { ProductType as CartItem } from "@/utils/types";
 
 
 // Validate mock cart items helper function

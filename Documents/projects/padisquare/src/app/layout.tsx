@@ -12,7 +12,7 @@ import { cookies } from "next/headers";
 
 // Define metadata for the application, including SEO and Open Graph data
 export const metadata: Metadata = {
-  metadataBase: new URL("https://padisquare-multivendor-mini-sites-demo.vercel.app"),
+  metadataBase: new URL("https://padisquare-multivendor-sites-demo.vercel.app"),
 
   title: {
     default: "Padisquare Multivendor Mini Sites Demo",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Padisquare Multivendor Mini Sites Demo",
     description: "Demo of Padisquare Multivendor Mini Sites.",
-    url: "https://padisquare-multivendor-mini-sites-demo.vercel.app",
+    url: "https://padisquare-multivendor-sites-demo.vercel.app",
     siteName: "Padisquare Multivendor Mini Sites Demo",
     images: [{ url: "/images/padisquare-logo-without-name.png" }],
   },

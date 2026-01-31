@@ -2,14 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { ProductFiltersType } from "@/utils/types";
 
-type ProductFilters = {
-  search: string;
-  sort: string;
-  page: number;
-};
 
-const DEFAULTS: ProductFilters = {
+const DEFAULTS: ProductFiltersType = {
   search: "",
   sort: "recent",
   page: 1,
@@ -20,7 +16,7 @@ export default function useProductFilters() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const initialFilters = useMemo<ProductFilters>(() => {
+  const initialFilters = useMemo<ProductFiltersType>(() => {
     return {
       search: searchParams.get("q") ?? DEFAULTS.search,
       sort: searchParams.get("sort") ?? DEFAULTS.sort,
@@ -28,14 +24,14 @@ export default function useProductFilters() {
     };
   }, [searchParams]);
 
-  const [filters, setFilters] = useState<ProductFilters>(initialFilters);
+  const [filters, setFilters] = useState<ProductFiltersType>(initialFilters);
 
   useEffect(() => {
     setFilters(initialFilters);
   }, [initialFilters]);
 
   const updateUrl = useCallback(
-    (updates: Partial<ProductFilters>) => {
+    (updates: Partial<ProductFiltersType>) => {
       const params = new URLSearchParams(searchParams.toString());
 
       if (updates.search !== undefined) {
