@@ -114,7 +114,7 @@ const Hero = ({heroImage, catchPhrase}: {heroImage: string; catchPhrase: string;
       </div>
 
       {/* Right column for hero image */}
-      <div className="transition-all duration-500 -z-10 max-lg:opacity-40 opacity-100 absolute right-0 top-0 max-[375px]:hidden flex self-start w-full justify-center max-w-875 sm:max-w-125 p-0">
+      <div className="transition-all duration-500 -z-10 max-lg:opacity-40 opacity-100 absolute right-0 top-0 max-[375px]:hidden flex self-start w-full justify-center max-w-full sm:max-w-125 p-0">
         <ImageWrapper
           className="relative -z-10"
           sourceUrl={heroImage}

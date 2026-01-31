@@ -140,7 +140,7 @@ const ProductsGrid = ({
         </div>
       </div>
 
-      <div className="w-full flex justify-between mb-4">
+      <div className="w-full flex justify-between mb-4 gap-8">
         <SearchBar value={search} onChange={setSearch} />
 
         <SortSelect value={sort} onChange={setSort} />

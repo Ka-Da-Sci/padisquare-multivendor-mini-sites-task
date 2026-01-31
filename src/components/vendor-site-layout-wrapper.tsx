@@ -17,7 +17,7 @@ const VendorSiteLayoutWrapper = ({ children }: { children: ReactNode }) => {
 
   return (
     <QueryClientProvider>
-      <div className="w-full min-h-full flex flex-col items-center">
+      <div className="w-full max-w-full mx-auto overflow-x-clip min-h-full flex flex-col items-center">
           <Header />
         <main className="w-full flex-1 px-2 sm:px-16">
           {children}

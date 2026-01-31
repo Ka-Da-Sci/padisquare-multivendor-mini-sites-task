@@ -12,7 +12,7 @@ const MainRootlayoutWrapper = ({ children }: { children: ReactNode }) => {
 
   return (
     <QueryClientProvider>
-      <div className="w-full min-h-screen flex flex-col items-center">
+      <div className="w-full max-w-full mx-auto overflow-x-clip min-h-screen flex flex-col items-center">
         <Header />
         <main className="flex-1 w-full px-2 sm:px-16 pt-32">
           {children}

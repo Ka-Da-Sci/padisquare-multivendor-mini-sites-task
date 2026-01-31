@@ -251,17 +251,6 @@ export const vendorData = [
         quantity: 50,
       },
       {
-        id: "8",
-        createdAt: "2024-08-01",
-        description:
-          "Powerful laptop featuring Apple M-series performance, stunning Retina display, and long-lasting battery life for professionals.",
-        title: "Apple MacBook Pro",
-        price: 2200,
-        imgSrc: "/images/Apple-MacBook-Pro.png",
-        altText: "apple-macbook-pro",
-        quantity: 30,
-      },
-      {
         id: "9",
         createdAt: "2024-08-10",
         description:

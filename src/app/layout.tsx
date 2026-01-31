@@ -59,7 +59,7 @@ export default async function RootLayout({
       data-theme={initialTheme}
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}  ${bai_jamjuree.variable} ${space_grotesk.variable} antialiased bg-background font-sans flex flex-col justify-between items-center w-full h-screen max-w-360 mx-auto overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}  ${bai_jamjuree.variable} ${space_grotesk.variable} antialiased bg-background font-sans flex flex-col justify-between items-center w-full h-screen max-w-360 mx-auto overflow-x-clip`}
       >
         {children}
       </body>
