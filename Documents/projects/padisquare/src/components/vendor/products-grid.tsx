@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import SectionAnimatedWrapper from "../section-animated-wrapper";
 import Product from "./product";
@@ -13,9 +13,16 @@ import SortSelect from "../sort-select";
 import EmptyState from "../empty-state";
 import { sortProducts } from "@/utils/sort-product";
 import Pagination from "../pagination";
+import useProductFilters from "@/custom-hooks/use-product-filters";
 
 // Main component for rendering the products section
-const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase: string; }) => {
+const ProductsGrid = ({
+  slug,
+  subCatchPhrase,
+}: {
+  slug: string;
+  subCatchPhrase: string;
+}) => {
   // Fetch products using TanStack Query and validate them
   const {
     data: products = [],
@@ -32,25 +39,23 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
   });
 
   const ref = useRef(null);
-  // const isInView = useInView(ref, { once: false, amount: 0.05 });
-
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortOption, setSortOption] = useState("recent");
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const { search, sort, page, setSearch, setSort, setPage } =
+    useProductFilters();
 
   const filteredProducts = useMemo(() => {
-    let result = products.filter((p) =>
-      p.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    const result = products.filter((p) =>
+      p.title.toLowerCase().includes(search.toLowerCase()),
     );
-    result = sortProducts(result, sortOption);
-    return result;
-  }, [products, searchTerm, sortOption]);
+
+    return sortProducts(result, sort);
+  }, [products, search, sort]);
+
+  const itemsPerPage = 8;
 
   const paginatedProducts = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage;
+    const start = (page - 1) * itemsPerPage;
     return filteredProducts.slice(start, start + itemsPerPage);
-  }, [filteredProducts, currentPage]);
+  }, [filteredProducts, page]);
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
@@ -113,7 +118,6 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
     );
   }
 
-  console.log(products);
 
   return (
     <SectionAnimatedWrapper
@@ -137,8 +141,9 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
       </div>
 
       <div className="w-full flex justify-between mb-4">
-        <SearchBar value={searchTerm} onChange={setSearchTerm} />
-        <SortSelect value={sortOption} onChange={setSortOption} />
+        <SearchBar value={search} onChange={setSearch} />
+
+        <SortSelect value={sort} onChange={setSort} />
       </div>
 
       {/* Animated list of products with responsive grid layout */}
@@ -155,7 +160,7 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
               ...product,
               imgSrc:
                 typeof product.imgSrc === "object"
-                  ? product.imgSrc.src
+                  ? product.imgSrc
                   : product.imgSrc,
             }}
             index={idx}
@@ -167,9 +172,9 @@ const ProductsGrid = ({ slug, subCatchPhrase }: { slug: string;  subCatchPhrase:
         <EmptyState message="No products match your search." />
       )}
       <Pagination
-        currentPage={currentPage}
+        currentPage={page}
         totalPages={totalPages}
-        onPageChange={setCurrentPage}
+        onPageChange={setPage}
       />
     </SectionAnimatedWrapper>
   );
