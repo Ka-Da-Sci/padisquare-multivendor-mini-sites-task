@@ -18,15 +18,15 @@ export const metadata: Metadata = {
     default: "Padisquare Multivendor Mini Sites Demo",
     template: "%s | Padisquare Multivendor Mini Sites Demo",
   },
-  description: "Remake of Krea AI website.",
-  icons: { icon: "/images/logo-trans.svg" },
+  description: "Demo of Padisquare Multivendor Mini Sites.",
+  icons: { icon: "/images/padisquare-logo-without-name.png" },
 
   openGraph: {
     title: "Padisquare Multivendor Mini Sites Demo",
     description: "Demo of Padisquare Multivendor Mini Sites.",
     url: "https://padisquare-multivendor-mini-sites-demo.vercel.app",
     siteName: "Padisquare Multivendor Mini Sites Demo",
-    images: [{ url: "/images/logo-trans.svg" }],
+    images: [{ url: "/images/padisquare-logo-without-name.png" }],
   },
 };
 
@@ -61,12 +61,6 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable}  ${bai_jamjuree.variable} ${space_grotesk.variable} antialiased bg-background font-sans flex flex-col justify-between items-center w-full h-screen max-w-360 mx-auto overflow-x-hidden`}
       >
-        {/* <header>
-          <ThemeToggle
-            initialTheme={initialTheme}
-            // initialThemename={initialThemename}
-          />
-        </header> */}
         {children}
       </body>
     </html>

@@ -38,7 +38,7 @@ export const vendorData = [
       },
       {
         id: "3",
-        createdAt: "2024-02-05",
+        createdAt: "2021-02-05",
         description:
           "Sleek running shoes built with responsive cushioning for smooth daily runs.",
         title: "Nike Revolution 6",
@@ -60,7 +60,7 @@ export const vendorData = [
       },
       {
         id: "5",
-        createdAt: "2024-03-02",
+        createdAt: "2021-03-02",
         description:
           "Breathable training shoes designed for gym workouts and high-intensity sessions.",
         title: "Nike Metcon 8",
@@ -71,7 +71,7 @@ export const vendorData = [
       },
       {
         id: "6",
-        createdAt: "2024-03-15",
+        createdAt: "2021-03-15",
         description:
           "Iconic canvas sneakers delivering a minimalist look with everyday versatility.",
         title: "Nike SB Chron 2 Canvas",
@@ -82,7 +82,7 @@ export const vendorData = [
       },
       {
         id: "7",
-        createdAt: "2024-04-01",
+        createdAt: "2021-04-01",
         description:
           "Durable skate shoes with reinforced canvas and enhanced board control.",
         title: "Nike SB Charge Canvas",
@@ -126,7 +126,7 @@ export const vendorData = [
       },
       {
         id: "11",
-        createdAt: "2024-06-01",
+        createdAt: "2021-06-01",
         description:
           "Canvas skate shoes offering flexibility, grip, and classic Nike SB styling.",
         title: "Nike SB Portmore Canvas",
@@ -137,7 +137,7 @@ export const vendorData = [
       },
       {
         id: "12",
-        createdAt: "2024-06-18",
+        createdAt: "2021-06-18",
         description:
           "Performance running shoes engineered for speed, stability, and lightweight comfort.",
         title: "Nike Zoom Fly 5",
@@ -148,7 +148,7 @@ export const vendorData = [
       },
       {
         id: "13",
-        createdAt: "2024-07-05",
+        createdAt: "2021-07-05",
         description:
           "Stylish canvas sneakers built for casual wear with a clean, modern aesthetic.",
         title: "Nike Court Legacy Canvas",

@@ -1,6 +1,21 @@
 import MainRootlayoutWrapper from "@/components/main-rootlayout-wrapper";
 import VendorPreviewCard from "@/components/vendor-card";
 import { fetchVendorsMeta } from "@/services/fetch-vendors-meta";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://padisquare-multivendor-mini-sites-demo.vercel.app"),
+  title: "Padisquare Landing Page - Featured Stores",
+  description: "Browse stores from our trusted vendors on Padisquare Multivendor Mini Sites.",
+  icons: { icon: "/images/padisquare-logo-without-name.png" },
+  openGraph: {
+    title: "Padisquare Landing Page - Featured Stores",
+    description: "Browse stores from our trusted vendors on Padisquare Multivendor Mini Sites.",
+    url: "https://padisquare-multivendor-mini-sites-demo.vercel.app",
+    siteName: "Padisquare",
+    images: [{ url: "/images/padisquare-logo-without-name.png" }],
+  },
+};
 
 export default async function HomePage() {
   const vendorMeta = await fetchVendorsMeta();
@@ -24,7 +39,7 @@ export default async function HomePage() {
     <MainRootlayoutWrapper>
       <div className="h-full flex flex-col items-center justify-center gap-8 p-4">
         <h1 className="text-3xl md:text-5xl font-poppins font-black mb-8 text-center">
-          Pad<span className="text-brand-primary">i</span>Square ecommerce platform
+          Pad<span className="text-brand-primary">i</span>Square e-commerce platform
         </h1>
         <div className="w-full antialiased flex flex-col items-center justify-center gap-4 text-center">
           <h2 className="text-xl md:text-3xl font-poppins font-bold ">
